@@ -1,7 +1,7 @@
 #!/bin/sh
 
 BASE_DIR="$(cd $(dirname $0); pwd)" 
-JXA_SCRIPT_NAME="fcEvernoteReminder.js"
+JXA_SCRIPT_NAME="fcEvernoteReminder.js" 
 PLIST_FILE_NAME="org.shikato.fc.evernote.reminder.plist" 
 PLIST_FILE_INSTALL_DIR="${HOME}/Library/LaunchAgents/" 
 
@@ -15,7 +15,7 @@ fi
 OSASCRIPT_PATH="$(which osascript)" 
 if [[ $? -eq 1 ]]; then 
   echo 'Install failed.' 
-  echo "Osascript command was not found." 
+  echo "Osascript command is not found." 
   exit 1
 fi 
 

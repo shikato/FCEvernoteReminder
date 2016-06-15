@@ -1,3 +1,12 @@
+/*
+ * fcEvernoteReminder
+ *
+ * Copyright (c) 2016 shikato
+ *
+ * This software is released under the MIT license.
+ * http://opensource.org/licenses/mit-license.php
+ */
+
 // Evernote tag names
 var FIRST_TIME = 'c0';
 var ONE_DAY_LATER = 'c1';
@@ -71,12 +80,10 @@ var getTagByName = function (currentTagName) {
 var setNextReminder = function (note, currentTagName) {
   var doneTime = null;
   if (currentTagName === FIRST_TIME) {
-    //doneTime = note.creationDate.get();
     doneTime = new Date();
   } else {
     doneTime = note.reminderDoneTime.get();
     if (doneTime === null) {
-      //doneTime = note.modificationDate.get();
       doneTime = new Date();
     }
   }
@@ -131,7 +138,10 @@ function run(argv) {
   var i = 0;
   while (!isNetworkConnected()) {
     i++;
-    if (i === MAX_NETWORK_CHECK_COUNT) break;
+    if (i === MAX_NETWORK_CHECK_COUNT) {
+      console.log("FCEvernoteReminder failed. Network is offline.");
+      return;
+    }
     delay(DELAY_SECOND);
   }
 

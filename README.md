@@ -34,16 +34,16 @@ sh ./uninstall.sh
 ```
 
 ## Usage
-If you want to automatically register reminders which is based on [forgetting curve](https://en.wikipedia.org/wiki/Forgetting_curve) with your notes of Evernote.  
-Please add `fc0` as a tag to the notes. Then reminders will be automatically registered with the notes.
+If you want to automatically register reminders which are based on **[forgetting curve](https://en.wikipedia.org/wiki/Forgetting_curve)** with your notes of Evernote.  
+Please add `fc0` as a tag to the notes. Then reminders will be automatically registered with the notes.  
 If you finish the reminder. Next reminder will be automatically registered with the note.
 
 Reminders are registered in the following timings.
 
-1. one day later (fc1)
-1. one week later (fc2)
-1. two weeks later (fc3)
-1. one month later (fc4)
+1. **one day later (fc1)**
+1. **one week later (fc2)**
+1. **two weeks later (fc3)**
+1. **one month later (fc4)**
 
 [fcEvernoteReminder.js]()
 
@@ -53,6 +53,8 @@ This FCEvernoteReminder task is automatically executed at the following times.
 * 23:00
 
 [org.shikato.fc.evernote.reminder.plist.before]()
+
+If your mac sleeps, this task will be executed right after your mac wakes up.
 
 ### Option 
 If you want to change tags names.
@@ -100,4 +102,5 @@ qiita
 
 ## License
 MIT
+
 

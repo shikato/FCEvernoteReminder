@@ -37,14 +37,15 @@ Please add `fc0` as a tag to the notes. Then reminders will be automatically reg
 If you finish the reminder. Next reminder will be automatically registered with the note.
 
 Reminders are registered in the following timings.
-* one day later (fc1)
-* one week later (fc2)
-* two weeks later (fc3)
-* one month later (fc4)
+
+1. one day later (fc1)
+1. one week later (fc2)
+1. two weeks later (fc3)
+1. one month later (fc4)
 
 [fcEvernoteReminder.js]()
 
-This FCEvernoteReminder task is executed at the following times.
+This FCEvernoteReminder task is automatically executed at the following times.
 * 8:00
 * 12:00
 * 23:00

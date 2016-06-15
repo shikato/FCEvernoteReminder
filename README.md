@@ -2,10 +2,12 @@
 FCEvernoteReminder automatically registers reminders which are based on [forgetting curve](https://en.wikipedia.org/wiki/Forgetting_curve) with your Evernote.
 
 ```
-This software is available only in Mac.
-The reason why is because this plugin uses JXA.
+You can use this software only in Mac.
+Because this software uses JXA.
 ```
 ## Getting Started
+### Required 
+Please install [Evernote.app](https://itunes.apple.com/en/app/evernote/id406056744?mt=12).
 
 ### Download
 #### curl
@@ -56,7 +58,7 @@ This FCEvernoteReminder task is automatically executed at the following times.
 If you want to change tags names.
 Please modify the following code.
 
-```
+```javascript
 var FIRST_TIME = 'c0';
 var ONE_DAY_LATER = 'c1';
 var ONE_WEEK_LATER = 'c2';
@@ -69,7 +71,7 @@ var COMPLETE = 'c5';
 
 If you want to change times when FCEvernoteReminder task executes.
 Please modify the following code.
-```
+```xml
 <dict>
   <key>Hour</key>
   <integer>8</integer>
@@ -98,3 +100,4 @@ qiita
 
 ## License
 MIT
+

@@ -71,7 +71,7 @@ var ONE_MONTH_LATER = 'fc4';
 var COMPLETE = 'fc5';
 ```
 
-[fcEvernoteReminder.js]()
+[fcEvernoteReminder.js](https://github.com/shikato/FCEvernoteReminder/blob/master/fcEvernoteReminder.js#L10-L16)
 
 #### How to change timing when FCEvernoteReminder task
 If you want to change times when FCEvernoteReminder task is executed.  
@@ -96,7 +96,7 @@ Please modify the following code.
   <integer>00</integer>
 </dict>  
 ```
-[org.shikato.fc.evernote.reminder.plist.before]()
+[org.shikato.fc.evernote.reminder.plist.before](https://github.com/shikato/FCEvernoteReminder/blob/master/org.shikato.fc.evernote.reminder.plist.before#L18-L35)
 
 After you modified the code to use option. Please execute `sh ./install.sh`.
 
@@ -107,7 +107,7 @@ sh ./self.sh
 ```
 
 ## Other documents
-qiita
+[qiita]()
 
 ## License
 MIT

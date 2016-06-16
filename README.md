@@ -62,6 +62,7 @@ If your mac sleeps, this task will be executed right after your mac wakes up.
 If you want to change tag names.  
 Please modify the following code.
 ```javascript
+// Evernote tag names
 var FIRST_TIME = 'fc0';
 var ONE_DAY_LATER = 'fc1';
 var ONE_WEEK_LATER = 'fc2';

@@ -5,6 +5,7 @@ FCEvernoteReminder automatically registers reminders which are based on [forgett
 You can use this software only in Mac.
 Because this software uses JXA.
 ```
+
 ## Getting Started
 ### Required 
 Please install [Evernote.app](https://itunes.apple.com/en/app/evernote/id406056744?mt=12).
@@ -36,7 +37,7 @@ sh ./uninstall.sh
 ## Usage
 If you want to automatically register reminders which are based on **[forgetting curve](https://en.wikipedia.org/wiki/Forgetting_curve)** with your notes of Evernote.  
 Please add `fc0` as a tag to the notes. Then reminders will be automatically registered with the notes.  
-If you finish the reminder. Next reminder will be automatically registered with the note.
+If you finish the reminders. Next reminder will be automatically registered with the note.
 
 Reminders are registered in the following timings.
 
@@ -57,9 +58,8 @@ This FCEvernoteReminder task is automatically executed at the following times.
 If your mac sleeps, this task will be executed right after your mac wakes up.
 
 ### Option 
-If you want to change tags names.
+If you want to change tag names.  
 Please modify the following code.
-
 ```javascript
 var FIRST_TIME = 'c0';
 var ONE_DAY_LATER = 'c1';
@@ -71,7 +71,7 @@ var COMPLETE = 'c5';
 
 [fcEvernoteReminder.js]()
 
-If you want to change times when FCEvernoteReminder task executes.
+If you want to change times when FCEvernoteReminder task is executes.  
 Please modify the following code.
 ```xml
 <dict>
@@ -95,7 +95,7 @@ Please modify the following code.
 ```
 [org.shikato.fc.evernote.reminder.plist.before]()
 
-After modified the code to use option. Please execute `sh ./install.sh`.
+After you modified the code to use option. Please execute `sh ./install.sh`.
 
 ## Other documents
 qiita

@@ -103,7 +103,7 @@ sh ./self.sh
 ```
 
 ## Other documents
-[qiita]()
+[Qiita](http://qiita.com/shikato/items/664fc13438cca2a0535e)
 
 ## License
 MIT

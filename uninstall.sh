@@ -4,7 +4,7 @@ PLIST_FILE_NAME="org.shikato.fc.evernote.reminder.plist"
 PLIST_FILE_INSTALL_DIR="${HOME}/Library/LaunchAgents/" 
 
 if [[ ! -e "${PLIST_FILE_INSTALL_DIR}/${PLIST_FILE_NAME}" ]]; then 
-  echo 'Uninstall failed.' 
+  echo "Uninstall failed."
   echo "Maybe FCEvernoteReminder hasn't been installed yet."
   exit 1
 fi

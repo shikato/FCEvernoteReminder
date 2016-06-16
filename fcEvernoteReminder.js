@@ -18,7 +18,7 @@ var COMPLETE = 'c5';
 var MAX_NETWORK_CHECK_COUNT = 5;
 var DELAY_SECOND = 10;
 
-var definedTagNames = [FIRST_TIME, ONE_DAY_LATER, ONE_WEEK_LATER, TWO_WEEKS_LATER, ONE_MONTH_LATER, COMPLETE];
+var DEFINED_TAG_NAMES = [FIRST_TIME, ONE_DAY_LATER, ONE_WEEK_LATER, TWO_WEEKS_LATER, ONE_MONTH_LATER, COMPLETE];
 var evernoteApp = null;
 
 var getEvernoteApp = function () {
@@ -43,9 +43,9 @@ var getNotesByTag = function (tagName) {
 };
 
 var isReminderDone = function (note) {
-  if (note.reminderTime.get() === null) {
+  if (note.reminderTime.get() == null) {
     return true;
-  } else if (note.reminderDoneTime.get() === null) {
+  } else if (note.reminderDoneTime.get() == null) {
     return false;
   }
   return true;
@@ -57,41 +57,44 @@ var replaceTagWithNextTag = function (note, tagName) {
   var tagToUnassign = getTagByName(tagName);
 
   var tagToAssign = null;
-  definedTagNames.forEach(function (definedTagName, i) {
+  DEFINED_TAG_NAMES.forEach(function (definedTagName, i) {
     if (tagName === definedTagName) {
-      tagToAssign = getTagByName(definedTagNames[i + 1])
+      tagToAssign = getTagByName(DEFINED_TAG_NAMES[i + 1])
     }
   });
-
   if (tagToAssign == null) return;
 
   tagToUnassign.unassign({from: note});
   tagToAssign.assign({to: note});
 };
 
-var getTagByName = function (currentTagName) {
-  var tag = evernoteApp.tags.byName(currentTagName);
+var getTagByName = function (tagName) {
+  var tag = evernoteApp.tags.byName(tagName);
   if (!tag.exists()) {
-    tag = evernoteApp.Tag({name: currentTagName}).make();
+    tag = evernoteApp.Tag({name: tagName}).make();
   }
   return tag;
 };
 
 var setNextReminder = function (note, currentTagName) {
+  if (currentTagName === ONE_MONTH_LATER || currentTagName === COMPLETE) {
+    return;
+  }
+
   var doneTime = null;
   if (currentTagName === FIRST_TIME) {
     doneTime = new Date();
   } else {
     doneTime = note.reminderDoneTime.get();
-    if (doneTime === null) {
+    if (doneTime == null) {
       doneTime = new Date();
     }
   }
 
-  if (doneTime === null) return;
-  var timeToReminder = getTimeForNextReminder(doneTime, currentTagName);
-  if (timeToReminder === null) return;
-  note.reminderTime.set(timeToReminder);
+  if (doneTime == null) return;
+  var timeToNextReminder = getTimeForNextReminder(doneTime, currentTagName);
+  if (timeToNextReminder == null) return;
+  note.reminderTime.set(timeToNextReminder);
   note.reminderOrder.set(new Date());
   note.reminderDoneTime.set(null);
 };
@@ -102,18 +105,16 @@ var removeReminder = function (note) {
   note.reminderOrder.set(null);
 };
 
-var getTimeForNextReminder = function (doneTime, tagName) {
-  if (tagName === FIRST_TIME) {
+var getTimeForNextReminder = function (doneTime, currentTagName) {
+  if (currentTagName === FIRST_TIME) {
     doneTime.setDate(doneTime.getDate() + 1);
-  } else if (tagName === ONE_DAY_LATER) {
+  } else if (currentTagName === ONE_DAY_LATER) {
     doneTime.setDate(doneTime.getDate() + 7);
-  } else if (tagName === ONE_WEEK_LATER) {
+  } else if (currentTagName === ONE_WEEK_LATER) {
     doneTime.setDate(doneTime.getDate() + 14);
-  } else if (tagName === TWO_WEEKS_LATER) {
+  } else if (currentTagName === TWO_WEEKS_LATER) {
     doneTime.setMonth(doneTime.getMonth() + 1);
-  } else if (tagName === ONE_MONTH_LATER) {
-    return null;
-  } else if (tagName === COMPLETE) {
+  } else if (currentTagName === ONE_MONTH_LATER || currentTagName === COMPLETE) {
     return null;
   }
   return doneTime;
@@ -133,7 +134,10 @@ var isNetworkConnected = function () {
 
 function run(argv) {
   evernoteApp = getEvernoteApp();
-  if (evernoteApp == null) return;
+  if (evernoteApp == null) {
+    console.log("FCEvernoteReminder failed. Evernote.app doesn't exist.");
+    return;
+  }
 
   var i = 0;
   while (!isNetworkConnected()) {
@@ -147,23 +151,23 @@ function run(argv) {
 
   evernoteApp.synchronize();
 
-  var notesEachTag = [];
-  definedTagNames.forEach(function (definedTagName) {
+  var notesEachTagArray = [];
+  DEFINED_TAG_NAMES.forEach(function (definedTagName) {
     if (definedTagName === COMPLETE) return;
     var notes = getNotesByTag(definedTagName);
-    notesEachTag.push(notes);
+    notesEachTagArray.push(notes);
   });
 
-  notesEachTag.forEach(function (notes, i) {
-    notes.forEach(function (note) {
-      if (definedTagNames[i] !== FIRST_TIME) {
+  notesEachTagArray.forEach(function (notesEachTag, i) {
+    notesEachTag.forEach(function (note) {
+      if (DEFINED_TAG_NAMES[i] !== FIRST_TIME) {
         if (!isReminderDone(note)) {
           return;
         }
       }
-      replaceTagWithNextTag(note, definedTagNames[i]);
-      setNextReminder(note, definedTagNames[i]);
-      if (definedTagNames[i] === ONE_MONTH_LATER) {
+      replaceTagWithNextTag(note, DEFINED_TAG_NAMES[i]);
+      setNextReminder(note, DEFINED_TAG_NAMES[i]);
+      if (DEFINED_TAG_NAMES[i] === ONE_MONTH_LATER) {
         removeReminder(note);
       }
     });

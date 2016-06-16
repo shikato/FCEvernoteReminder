@@ -11,17 +11,17 @@ Because this software uses JXA.
 Please install [Evernote.app](https://itunes.apple.com/en/app/evernote/id406056744?mt=12).
 
 ### Download
-#### curl
+#### via curl
 ``` 
 curl -Ss -f -L https://github.com/shikato/FCEvernoteReminder/tarball/master | tar xvz -C ./
 ```
 
-#### git
+#### via git
 ```
 git clone https://github.com/shikato/FCEvernoteReminder.git
 ```
 
-#### zip
+#### via zip
 [https://github.com/shikato/FCEvernoteReminder/archive/master.zip](https://github.com/shikato/FCEvernoteReminder/archive/master.zip)
 
 ### Install
@@ -73,7 +73,7 @@ var COMPLETE = 'fc5';
 
 [fcEvernoteReminder.js]()
 
-#### How to change timing when FCEvernoteReminder task
+#### How to change times when FCEvernoteReminder task is executed
 If you want to change times when FCEvernoteReminder task is executed.  
 Please modify the following code.
 ```xml

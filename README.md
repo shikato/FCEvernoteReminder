@@ -73,7 +73,7 @@ var COMPLETE = 'fc5';
 [fcEvernoteReminder.js]()
 
 #### How to change timing when FCEvernoteReminder task
-If you want to change times when FCEvernoteReminder task is executes.  
+If you want to change times when FCEvernoteReminder task is executed.  
 Please modify the following code.
 ```xml
 <dict>

@@ -37,7 +37,7 @@ sh ./uninstall.sh
 ## Usage
 If you want to automatically register reminders which are based on **[forgetting curve](https://en.wikipedia.org/wiki/Forgetting_curve)** with your notes of Evernote.  
 Please add `fc0` as a tag to the notes. Then reminders will be automatically registered with the notes.  
-If you finish the reminders. Next reminder will be automatically registered with the note.
+If you finish the reminders. Next reminders will be automatically registered with the notes.
 
 Reminders are registered in the following timings.
 

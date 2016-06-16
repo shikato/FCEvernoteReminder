@@ -8,12 +8,12 @@
  */
 
 // Evernote tag names
-var FIRST_TIME = 'c0';
-var ONE_DAY_LATER = 'c1';
-var ONE_WEEK_LATER = 'c2';
-var TWO_WEEKS_LATER = 'c3';
-var ONE_MONTH_LATER = 'c4';
-var COMPLETE = 'c5';
+var FIRST_TIME = 'fc0';
+var ONE_DAY_LATER = 'fc1';
+var ONE_WEEK_LATER = 'fc2';
+var TWO_WEEKS_LATER = 'fc3';
+var ONE_MONTH_LATER = 'fc4';
+var COMPLETE = 'fc5';
 
 var MAX_NETWORK_CHECK_COUNT = 5;
 var DELAY_SECOND = 10;

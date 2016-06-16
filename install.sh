@@ -25,14 +25,12 @@ sed -i "" "s:<!-- JXA_SCRIPT_PATH -->:${BASE_DIR}/${JXA_SCRIPT_NAME}:g" ${BASE_D
 cp "${BASE_DIR}/${PLIST_FILE_NAME}" $PLIST_FILE_INSTALL_DIR
 
 launchctl unload ${PLIST_FILE_INSTALL_DIR}/${PLIST_FILE_NAME} >/dev/null 2>&1
-launchctl_result="$(launchctl load ${PLIST_FILE_INSTALL_DIR}/${PLIST_FILE_NAME} 2>&1)" 
+launchctl_load_result="$(launchctl load ${PLIST_FILE_INSTALL_DIR}/${PLIST_FILE_NAME} 2>&1)" 
 if [[ $? -eq 1 ]]; then 
   echo "Install failed."
   echo "Launchctl command status is 1." 
   exit 1
-fi 
-
-if [[ $(echo "$launchctl_result" | grep "not permitted") ]]; then
+elif [[ $(echo "$launchctl_load_result" | grep "not permitted") ]]; then 
   echo "Install failed."
   if [[ "$TMUX" != "" ]]; then
     echo "Because you maybe are using tmux now."

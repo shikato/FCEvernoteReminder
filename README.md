@@ -58,19 +58,21 @@ This FCEvernoteReminder task is automatically executed at the following times.
 If your mac sleeps, this task will be executed right after your mac wakes up.
 
 ### Option 
+#### How to change tag names 
 If you want to change tag names.  
 Please modify the following code.
 ```javascript
-var FIRST_TIME = 'c0';
-var ONE_DAY_LATER = 'c1';
-var ONE_WEEK_LATER = 'c2';
-var TWO_WEEKS_LATER = 'c3';
-var ONE_MONTH_LATER = 'c4';
-var COMPLETE = 'c5';
+var FIRST_TIME = 'fc0';
+var ONE_DAY_LATER = 'fc1';
+var ONE_WEEK_LATER = 'fc2';
+var TWO_WEEKS_LATER = 'fc3';
+var ONE_MONTH_LATER = 'fc4';
+var COMPLETE = 'fc5';
 ```
 
 [fcEvernoteReminder.js]()
 
+#### How to change timing when FCEvernteReminder task
 If you want to change times when FCEvernoteReminder task is executes.  
 Please modify the following code.
 ```xml
@@ -97,10 +99,12 @@ Please modify the following code.
 
 After you modified the code to use option. Please execute `sh ./install.sh`.
 
+
 ## Other documents
 qiita
 
 ## License
 MIT
+
 
 

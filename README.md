@@ -46,14 +46,10 @@ Reminders are registered in the following timings.
 1. **two weeks later (fc3)**
 1. **one month later (fc4)**
 
-[fcEvernoteReminder.js]()
-
 This FCEvernoteReminder task is automatically executed at the following times.
 * 8:00
 * 12:00
 * 23:00
-
-[org.shikato.fc.evernote.reminder.plist.before]()
 
 If your mac sleeps, this task will be executed right after your mac wakes up.
 
@@ -71,7 +67,7 @@ var ONE_MONTH_LATER = 'fc4';
 var COMPLETE = 'fc5';
 ```
 
-[fcEvernoteReminder.js]()
+[fcEvernoteReminder.js](https://github.com/shikato/FCEvernoteReminder/blob/master/fcEvernoteReminder.js#L10-L16)
 
 #### How to change times when FCEvernoteReminder task is executed
 If you want to change times when FCEvernoteReminder task is executed.  
@@ -96,7 +92,7 @@ Please modify the following code.
   <integer>00</integer>
 </dict>  
 ```
-[org.shikato.fc.evernote.reminder.plist.before]()
+[org.shikato.fc.evernote.reminder.plist.before](https://github.com/shikato/FCEvernoteReminder/blob/master/org.shikato.fc.evernote.reminder.plist.before#L18-L35)
 
 After you modified the code to use option. Please execute `sh ./install.sh`.
 
@@ -111,6 +107,3 @@ qiita
 
 ## License
 MIT
-
-
-

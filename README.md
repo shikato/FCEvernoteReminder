@@ -1,14 +1,13 @@
 # FCEvernoteReminder
 FCEvernoteReminder automatically registers reminders which are based on [forgetting curve](https://en.wikipedia.org/wiki/Forgetting_curve) with your Evernote.
 
+## Getting Started
+### Required 
+Please install [Evernote.app](https://itunes.apple.com/en/app/evernote/id406056744?mt=12).
 ```
 You can use this software only in Mac.
 Because this software uses JXA.
 ```
-
-## Getting Started
-### Required 
-Please install [Evernote.app](https://itunes.apple.com/en/app/evernote/id406056744?mt=12).
 
 ### Download
 #### via curl

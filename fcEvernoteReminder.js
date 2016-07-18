@@ -1,10 +1,10 @@
-/*
+/**
  * fcEvernoteReminder
  *
  * Copyright (c) 2016 shikato
  *
  * This software is released under the MIT license.
- * http://opensource.org/licenses/mit-license.php
+ * http://opensource.org/licenses/mit-license.html
  */
 
 // Evernote tag names
